@@ -4,37 +4,42 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Private Viewer — Nicole Villarta</title>
+  <title>Brewed Bliss — Private Work | Nicole Villarta</title>
 
-  <!-- Elegant editorial fonts -->
+  <meta
+    name="description"
+    content="Private portfolio presentation by Nicole Villarta featuring the Brewed Bliss Canva design tutorial."
+  />
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap"
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap"
     rel="stylesheet"
-  />
+  >
 
   <style>
     /* =========================================================
-       BASE
-    ========================================================= */
+       NICOLE VILLARTA — PRIVATE VIEWER
+       Minimal editorial portfolio theme
+       ========================================================= */
 
     :root {
-      --cream: #f7f3ed;
-      --cream-dark: #eee7db;
-      --beige: #e7ddcd;
-      --beige-light: #f1eadf;
-
-      --brown: #3d3028;
-      --brown-soft: #65574d;
-      --brown-light: #8b7969;
-
+      --cream: #f7f4ee;
+      --paper: #eee7da;
+      --paper-light: #fdfbf7;
+      --espresso: #3f342d;
+      --brown: #604a3b;
+      --caramel: #a47a59;
+      --muted: #756a62;
       --line: #d8cec0;
-      --white: #fffdf9;
+      --white: #ffffff;
 
-      --serif: "Cormorant Garamond", Georgia, serif;
+      --serif: "Playfair Display", Georgia, serif;
       --sans: "DM Sans", Arial, sans-serif;
+
+      --container: 1240px;
     }
 
     * {
@@ -49,10 +54,15 @@
 
     body {
       background: var(--cream);
-      color: var(--brown);
+      color: var(--espresso);
       font-family: var(--sans);
       min-height: 100vh;
       -webkit-font-smoothing: antialiased;
+    }
+
+    button,
+    input {
+      font: inherit;
     }
 
     a {
@@ -60,46 +70,43 @@
       text-decoration: none;
     }
 
-    button,
-    input {
-      font-family: inherit;
+    /* =========================================================
+       HEADER
+       ========================================================= */
+
+    header {
+      height: 112px;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      align-items: center;
     }
 
-
-    /* =========================================================
-       NAVIGATION
-    ========================================================= */
-
-    .navbar {
-      height: 124px;
-      border-bottom: 1px solid var(--line);
-
+    .nav {
+      width: min(var(--container), calc(100% - 80px));
+      margin: auto;
       display: flex;
       align-items: center;
       justify-content: space-between;
-
-      padding: 0 clamp(28px, 9vw, 140px);
-
-      background: rgba(247, 243, 237, 0.96);
     }
 
-    .brand {
-      width: 62px;
-      height: 62px;
-
-      border: 1px solid var(--brown);
-
+    .logo {
+      width: 70px;
+      height: 70px;
+      border: 1px solid var(--espresso);
       border-radius: 50%;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: grid;
+      place-items: center;
 
       font-family: var(--serif);
-      font-size: 23px;
-      font-weight: 500;
-
+      font-size: 24px;
       letter-spacing: -1px;
+
+      transition: all 0.25s ease;
+    }
+
+    .logo:hover {
+      background: var(--espresso);
+      color: var(--cream);
     }
 
     .nav-right {
@@ -110,423 +117,466 @@
 
     .nav-link {
       font-size: 15px;
-      color: var(--brown-soft);
-
-      transition:
-        color 0.25s ease,
-        transform 0.25s ease;
+      color: var(--espresso);
+      position: relative;
     }
 
-    .nav-link:hover {
-      color: var(--brown);
-      transform: translateY(-1px);
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -7px;
+      width: 0;
+      height: 1px;
+      background: var(--caramel);
+      transition: width 0.25s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
     }
 
     .back-button {
-      border: 1px solid var(--brown);
-      padding: 14px 26px;
-
+      border: 1px solid var(--espresso);
+      padding: 13px 25px;
+      background: transparent;
+      color: var(--espresso);
       font-size: 15px;
-
-      transition:
-        background 0.25s ease,
-        color 0.25s ease;
+      transition: all 0.25s ease;
     }
 
     .back-button:hover {
-      background: var(--brown);
+      background: var(--espresso);
       color: var(--cream);
     }
 
-
     /* =========================================================
-       MAIN
-    ========================================================= */
+       HERO
+       ========================================================= */
 
-    main {
-      width: min(1120px, calc(100% - 48px));
-      margin: 0 auto;
-      padding: 110px 0 120px;
-    }
+    .hero {
+      width: min(var(--container), calc(100% - 80px));
+      margin: auto;
+      padding: 125px 0 90px;
 
-    .intro {
-      max-width: 820px;
-      margin-bottom: 70px;
+      display: grid;
+      grid-template-columns: 1fr 0.75fr;
+      gap: 100px;
+      align-items: end;
     }
 
     .eyebrow {
+      color: var(--caramel);
       font-size: 12px;
-      letter-spacing: 4px;
+      font-weight: 600;
+      letter-spacing: 0.34em;
       text-transform: uppercase;
-
-      color: var(--brown-light);
-
-      margin-bottom: 22px;
-    }
-
-    .headline {
-      font-family: var(--serif);
-
-      font-size: clamp(64px, 8vw, 112px);
-      line-height: 0.86;
-
-      font-weight: 500;
-      letter-spacing: -4px;
-
-      max-width: 900px;
-
-      margin-bottom: 34px;
-    }
-
-    .headline span {
-      color: #a98261;
-      font-style: italic;
-    }
-
-    .intro-text {
-      max-width: 690px;
-
-      font-size: 17px;
-      line-height: 1.8;
-
-      color: var(--brown-soft);
-    }
-
-
-    /* =========================================================
-       ACCESS PANEL
-    ========================================================= */
-
-    .viewer-panel {
-      background: var(--beige-light);
-
-      border: 1px solid var(--line);
-
-      padding: clamp(28px, 5vw, 56px);
-
-      position: relative;
-    }
-
-    .panel-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-
-      padding-bottom: 25px;
-      margin-bottom: 45px;
-
-      border-bottom: 1px solid var(--line);
-    }
-
-    .project-name {
-      font-family: var(--serif);
-      font-size: clamp(28px, 4vw, 42px);
-      font-weight: 500;
-    }
-
-    .private-label {
-      font-size: 11px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--brown-light);
-    }
-
-
-    /* =========================================================
-       LOCKED STATE
-    ========================================================= */
-
-    .locked-state {
-      min-height: 440px;
-
-      display: flex;
-      flex-direction: column;
-
-      align-items: center;
-      justify-content: center;
-
-      text-align: center;
-
-      padding: 40px 20px;
-    }
-
-    .lock-circle {
-      width: 78px;
-      height: 78px;
-
-      border: 1px solid var(--brown);
-
-      border-radius: 50%;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
       margin-bottom: 28px;
-
-      font-size: 25px;
     }
 
-    .locked-title {
+    .hero h1 {
+      max-width: 850px;
+
       font-family: var(--serif);
-
-      font-size: clamp(42px, 6vw, 64px);
-
-      line-height: 0.95;
-
+      font-size: clamp(58px, 6.4vw, 92px);
       font-weight: 500;
+      line-height: 0.97;
+      letter-spacing: -0.055em;
+    }
 
+    .hero h1 em {
+      color: var(--caramel);
+      font-style: normal;
+    }
+
+    .hero-description {
+      max-width: 590px;
+      margin-top: 38px;
+
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.85;
+    }
+
+    .hero-side {
+      border-left: 1px solid var(--line);
+      padding-left: 45px;
+      padding-bottom: 5px;
+    }
+
+    .project-number {
+      color: var(--caramel);
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      margin-bottom: 20px;
+    }
+
+    .hero-side h2 {
+      font-family: var(--serif);
+      font-size: 30px;
+      font-weight: 500;
+      line-height: 1.2;
       margin-bottom: 18px;
     }
 
-    .locked-description {
-      max-width: 560px;
-
-      color: var(--brown-soft);
-
-      font-size: 15px;
+    .hero-side p {
+      color: var(--muted);
+      font-size: 14px;
       line-height: 1.8;
+    }
 
+    /* =========================================================
+       PROJECT AREA
+       ========================================================= */
+
+    .project-wrap {
+      width: min(var(--container), calc(100% - 80px));
+      margin: auto;
+      padding-bottom: 120px;
+    }
+
+    .project-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      padding: 55px;
+    }
+
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .project-title {
+      font-family: var(--serif);
+      font-size: 39px;
+      font-weight: 500;
+      letter-spacing: -0.025em;
+    }
+
+    .project-meta {
+      text-align: right;
+      color: var(--caramel);
+      font-size: 11px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      line-height: 1.8;
+    }
+
+    .project-description {
+      max-width: 790px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.85;
+      margin-bottom: 42px;
+    }
+
+    /* =========================================================
+       VIDEO / LOCKED VIEWER
+       ========================================================= */
+
+    .video-shell {
+      position: relative;
+      width: 100%;
+      background: #ddd3c5;
+      overflow: hidden;
+      min-height: 650px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .video-placeholder {
+      width: min(480px, 90%);
+      min-height: 590px;
+
+      background:
+        linear-gradient(
+          to bottom,
+          rgba(63, 52, 45, 0.08),
+          rgba(63, 52, 45, 0.18)
+        ),
+        var(--paper-light);
+
+      border: 1px solid rgba(63, 52, 45, 0.15);
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      text-align: center;
+      padding: 55px 45px;
+
+      position: relative;
+    }
+
+    .video-placeholder::before {
+      content: "";
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      border: 1px solid rgba(164, 122, 89, 0.25);
+      border-radius: 50%;
+      top: 35px;
+      right: -40px;
+    }
+
+    .video-placeholder::after {
+      content: "";
+      position: absolute;
+      width: 90px;
+      height: 90px;
+      border: 1px solid rgba(164, 122, 89, 0.18);
+      border-radius: 50%;
+      bottom: 30px;
+      left: -35px;
+    }
+
+    .lock-mark {
+      width: 68px;
+      height: 68px;
+      border: 1px solid var(--espresso);
+      border-radius: 50%;
+
+      display: grid;
+      place-items: center;
+
+      font-size: 24px;
+      margin-bottom: 28px;
+
+      background: var(--paper-light);
+    }
+
+    .private-label {
+      color: var(--caramel);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .video-placeholder h3 {
+      font-family: var(--serif);
+      font-size: 42px;
+      font-weight: 500;
+      line-height: 1.1;
+      margin-bottom: 18px;
+    }
+
+    .video-placeholder p {
+      max-width: 360px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.8;
       margin-bottom: 34px;
     }
 
-    .password-area {
-      width: min(100%, 510px);
-    }
+    /* =========================================================
+       PASSWORD
+       ========================================================= */
 
-    .password-input {
+    .password-form {
       width: 100%;
-
-      height: 58px;
-
+      max-width: 410px;
+      display: flex;
+      border: 1px solid var(--espresso);
       background: var(--white);
+    }
 
-      border: 1px solid var(--line);
+    .password-form input {
+      min-width: 0;
+      flex: 1;
 
-      padding: 0 20px;
-
-      font-size: 15px;
-
-      color: var(--brown);
-
+      border: none;
       outline: none;
+      background: transparent;
 
-      text-align: center;
-
-      transition:
-        border-color 0.2s ease,
-        box-shadow 0.2s ease;
+      padding: 17px 18px;
+      color: var(--espresso);
+      font-size: 14px;
     }
 
-    .password-input::placeholder {
-      color: #9c9084;
-    }
-
-    .password-input:focus {
-      border-color: var(--brown-soft);
-
-      box-shadow: 0 0 0 3px rgba(61, 48, 40, 0.06);
+    .password-form input::placeholder {
+      color: #9a9189;
     }
 
     .unlock-button {
-      width: 100%;
+      border: none;
+      background: var(--espresso);
+      color: var(--white);
 
-      height: 58px;
-
-      margin-top: 10px;
-
-      border: 1px solid var(--brown);
-
-      background: var(--brown);
-
-      color: var(--cream);
-
-      font-size: 14px;
-
+      padding: 0 25px;
       cursor: pointer;
 
-      letter-spacing: 0.4px;
+      font-size: 13px;
+      font-weight: 600;
 
-      transition:
-        background 0.25s ease,
-        color 0.25s ease;
+      transition: background 0.25s ease;
     }
 
     .unlock-button:hover {
-      background: transparent;
-      color: var(--brown);
+      background: var(--caramel);
     }
 
     .error-message {
-      min-height: 24px;
+      min-height: 22px;
+      margin-top: 14px;
 
-      margin-top: 13px;
-
-      font-size: 13px;
-
-      color: #9a5f4e;
-
-      opacity: 0;
-
-      transition: opacity 0.2s ease;
+      color: #9b4e42;
+      font-size: 12px;
     }
-
-    .error-message.show {
-      opacity: 1;
-    }
-
 
     /* =========================================================
-       VIDEO STATE
-    ========================================================= */
+       UNLOCKED VIDEO
+       ========================================================= */
 
-    .video-state {
+    .video-content {
+      display: none;
+      width: 100%;
+      height: 720px;
+      background: #1e1b19;
+    }
+
+    .video-content iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .video-shell.unlocked {
+      min-height: 720px;
+    }
+
+    .video-shell.unlocked .video-placeholder {
       display: none;
     }
 
-    .video-state.active {
+    .video-shell.unlocked .video-content {
       display: block;
     }
 
-    .video-header {
-      display: flex;
+    /* =========================================================
+       PROJECT FOOTER
+       ========================================================= */
 
-      align-items: flex-end;
-      justify-content: space-between;
+    .project-footer {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
 
-      gap: 30px;
-
-      margin-bottom: 24px;
+      margin-top: 45px;
+      padding-top: 35px;
+      border-top: 1px solid var(--line);
     }
 
-    .video-title {
-      font-family: var(--serif);
+    .footer-item span {
+      display: block;
 
-      font-size: clamp(32px, 4vw, 48px);
-
-      font-weight: 500;
-
-      line-height: 1;
-    }
-
-    .video-status {
+      color: var(--caramel);
       font-size: 10px;
-
-      letter-spacing: 2.5px;
-
+      letter-spacing: 0.25em;
       text-transform: uppercase;
 
-      color: var(--brown-light);
-
-      white-space: nowrap;
+      margin-bottom: 10px;
     }
 
-    .video-wrapper {
-      position: relative;
-
-      width: 100%;
-
-      aspect-ratio: 16 / 9;
-
-      background: #d9d0c3;
-
-      overflow: hidden;
-
-      border: 1px solid var(--line);
+    .footer-item p {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.7;
     }
 
-    .video-wrapper iframe {
-      width: 100%;
-      height: 100%;
+    /* =========================================================
+       BOTTOM STATEMENT
+       ========================================================= */
 
-      border: 0;
-
-      display: block;
-    }
-
-    .video-note {
-      margin-top: 20px;
+    .closing {
+      width: min(var(--container), calc(100% - 80px));
+      margin: auto;
+      padding: 0 0 110px;
 
       display: flex;
-
-      align-items: center;
-
       justify-content: space-between;
+      align-items: flex-end;
+      gap: 60px;
+    }
 
-      gap: 20px;
+    .closing h2 {
+      max-width: 760px;
 
-      color: var(--brown-soft);
+      font-family: var(--serif);
+      font-size: clamp(38px, 4.5vw, 64px);
+      font-weight: 500;
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+    }
 
+    .closing h2 em {
+      color: var(--caramel);
+      font-style: normal;
+    }
+
+    .closing-note {
+      max-width: 270px;
+      color: var(--muted);
       font-size: 13px;
-
-      line-height: 1.6;
+      line-height: 1.8;
     }
-
-    .youtube-link {
-      border-bottom: 1px solid var(--brown-soft);
-
-      white-space: nowrap;
-
-      transition: opacity 0.2s ease;
-    }
-
-    .youtube-link:hover {
-      opacity: 0.6;
-    }
-
 
     /* =========================================================
        FOOTER
-    ========================================================= */
+       ========================================================= */
 
     footer {
       border-top: 1px solid var(--line);
+      padding: 30px 0;
+    }
 
-      padding: 32px clamp(28px, 9vw, 140px);
+    .footer-inner {
+      width: min(var(--container), calc(100% - 80px));
+      margin: auto;
 
       display: flex;
-
+      justify-content: space-between;
       align-items: center;
 
-      justify-content: space-between;
-
-      color: var(--brown-light);
-
+      color: var(--muted);
       font-size: 12px;
-
-      letter-spacing: 0.5px;
     }
 
-    .footer-right {
-      text-transform: uppercase;
-
-      letter-spacing: 2px;
-
-      font-size: 10px;
+    .footer-brand {
+      color: var(--espresso);
+      font-family: var(--serif);
+      font-size: 18px;
     }
-
 
     /* =========================================================
-       MOBILE
-    ========================================================= */
+       RESPONSIVE
+       ========================================================= */
 
-    @media (max-width: 700px) {
+    @media (max-width: 900px) {
 
-      .navbar {
-        height: 94px;
-
-        padding: 0 22px;
+      header {
+        height: 90px;
       }
 
-      .brand {
-        width: 52px;
-        height: 52px;
+      .nav {
+        width: min(100% - 40px, var(--container));
+      }
 
+      .logo {
+        width: 58px;
+        height: 58px;
         font-size: 20px;
       }
 
       .nav-right {
-        gap: 16px;
+        gap: 20px;
       }
 
       .nav-link {
@@ -534,314 +584,391 @@
       }
 
       .back-button {
-        padding: 11px 18px;
-        font-size: 13px;
+        padding: 11px 19px;
       }
 
-      main {
-        width: calc(100% - 32px);
+      .hero {
+        width: min(100% - 40px, var(--container));
+        padding: 80px 0 65px;
 
-        padding: 70px 0 80px;
+        grid-template-columns: 1fr;
+        gap: 55px;
       }
 
-      .intro {
-        margin-bottom: 50px;
+      .hero-side {
+        border-left: none;
+        border-top: 1px solid var(--line);
+        padding-left: 0;
+        padding-top: 30px;
       }
 
-      .eyebrow {
-        font-size: 10px;
-        letter-spacing: 3px;
+      .project-wrap,
+      .closing {
+        width: min(100% - 40px, var(--container));
       }
 
-      .headline {
-        font-size: clamp(54px, 17vw, 80px);
-
-        letter-spacing: -2.5px;
-
-        line-height: 0.9;
+      .project-card {
+        padding: 30px;
       }
 
-      .intro-text {
-        font-size: 15px;
-        line-height: 1.7;
-      }
-
-      .viewer-panel {
-        padding: 24px 18px;
-      }
-
-      .panel-top {
-        align-items: flex-start;
-
+      .project-header {
         flex-direction: column;
-
-        gap: 8px;
-
-        margin-bottom: 20px;
+        gap: 18px;
       }
 
-      .project-name {
-        font-size: 31px;
+      .project-meta {
+        text-align: left;
       }
 
-      .locked-state {
-        min-height: 420px;
-
-        padding: 30px 10px;
+      .video-shell {
+        min-height: 620px;
       }
 
-      .locked-title {
-        font-size: 45px;
+      .video-content {
+        height: 620px;
       }
 
-      .locked-description {
-        font-size: 14px;
-      }
-
-      .video-header {
-        align-items: flex-start;
-
+      .closing {
         flex-direction: column;
-
-        gap: 12px;
-      }
-
-      .video-title {
-        font-size: 34px;
-      }
-
-      .video-note {
         align-items: flex-start;
-
-        flex-direction: column;
       }
 
-      footer {
-        padding: 28px 22px;
-
-        flex-direction: column;
-
-        align-items: flex-start;
-
-        gap: 10px;
+      .footer-inner {
+        width: min(100% - 40px, var(--container));
       }
     }
 
+    @media (max-width: 560px) {
 
-    /* =========================================================
-       ACCESSIBILITY
-    ========================================================= */
+      .hero {
+        padding-top: 65px;
+      }
 
-    @media (prefers-reduced-motion: reduce) {
-      *,
-      *::before,
-      *::after {
-        scroll-behavior: auto !important;
-        transition: none !important;
+      .hero h1 {
+        font-size: 52px;
+      }
+
+      .hero-description {
+        font-size: 15px;
+      }
+
+      .project-card {
+        padding: 22px;
+      }
+
+      .project-title {
+        font-size: 30px;
+      }
+
+      .video-shell {
+        min-height: 580px;
+      }
+
+      .video-placeholder {
+        min-height: 530px;
+        padding: 45px 22px;
+      }
+
+      .video-placeholder h3 {
+        font-size: 34px;
+      }
+
+      .password-form {
+        flex-direction: column;
+        border: none;
+        gap: 9px;
+        background: transparent;
+      }
+
+      .password-form input {
+        width: 100%;
+        border: 1px solid var(--espresso);
+        background: var(--white);
+        padding: 16px;
+      }
+
+      .unlock-button {
+        min-height: 52px;
+        width: 100%;
+      }
+
+      .project-footer {
+        grid-template-columns: 1fr;
+        gap: 25px;
+      }
+
+      .video-content {
+        height: 570px;
+      }
+
+      .closing {
+        padding-bottom: 80px;
+      }
+
+      .closing h2 {
+        font-size: 42px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
       }
     }
   </style>
 </head>
 
-
 <body>
 
   <!-- =========================================================
-       NAVIGATION
-  ========================================================= -->
+       HEADER
+       ========================================================= -->
 
-  <header class="navbar">
+  <header>
+    <nav class="nav">
 
-    <a
-      href="index.html"
-      class="brand"
-      aria-label="Back to portfolio"
-    >
-      NV.
-    </a>
-
-    <nav class="nav-right">
-
-      <a
-        href="index.html"
-        class="nav-link"
-      >
-        Work
+      <a href="index.html" class="logo" aria-label="Back to portfolio">
+        NV.
       </a>
 
-      <a
-        href="index.html#services"
-        class="nav-link"
-      >
-        Services
-      </a>
+      <div class="nav-right">
 
-      <a
-        href="index.html"
-        class="back-button"
-      >
-        Back
-      </a>
+        <a href="index.html#work" class="nav-link">
+          Work
+        </a>
+
+        <a href="index.html#services" class="nav-link">
+          Services
+        </a>
+
+        <a href="index.html" class="back-button">
+          Back
+        </a>
+
+      </div>
 
     </nav>
-
   </header>
 
 
   <!-- =========================================================
-       MAIN CONTENT
-  ========================================================= -->
+       HERO
+       ========================================================= -->
 
   <main>
 
-    <section class="intro">
+    <section class="hero">
 
-      <p class="eyebrow">
-        Private Work · Viewer Access
-      </p>
+      <div>
 
-      <h1 class="headline">
-        Selected work,
-        <br>
-        <span>behind the scenes.</span>
-      </h1>
+        <div class="eyebrow">
+          Private Work · Viewer Access
+        </div>
 
-      <p class="intro-text">
-        A private selection of creative work prepared for portfolio
-        review. Enter the access password below to view the protected
-        project.
-      </p>
+        <h1>
+          Selected work,<br>
+          <em>behind the scenes.</em>
+        </h1>
+
+        <p class="hero-description">
+          A private presentation of selected creative work,
+          showing the process, thinking, and execution behind
+          a social media content project.
+        </p>
+
+      </div>
+
+
+      <div class="hero-side">
+
+        <div class="project-number">
+          01 / Private Project
+        </div>
+
+        <h2>
+          Brewed Bliss — Canva Design Tutorial
+        </h2>
+
+        <p>
+          A behind-the-scenes look at the design process
+          used to create a promotional coffee graphic,
+          from visual direction and layout to typography,
+          image placement, and final editing.
+        </p>
+
+      </div>
 
     </section>
 
 
     <!-- =======================================================
-         VIEWER PANEL
-    ======================================================= -->
+         PROJECT
+         ======================================================= -->
 
-    <section class="viewer-panel">
+    <section class="project-wrap">
 
-      <div class="panel-top">
+      <article class="project-card">
 
-        <h2 class="project-name">
-          Brewed Bliss — Canva Design Tutorial
-        </h2>
+        <div class="project-header">
 
-        <span class="private-label">
-          Private Viewer
-        </span>
+          <h2 class="project-title">
+            Brewed Bliss — Canva Design Tutorial
+          </h2>
 
-      </div>
+          <div class="project-meta">
+            Private Viewer<br>
+            Creative Process
+          </div>
 
-
-      <!-- =====================================================
-           LOCKED VIEW
-      ====================================================== -->
-
-      <div
-        class="locked-state"
-        id="lockedState"
-      >
-
-        <div class="lock-circle">
-          🔒
         </div>
 
-        <h3 class="locked-title">
-          Private video.
-        </h3>
 
-        <p class="locked-description">
-          This project is available through viewer access.
-          Enter the password provided to you to continue.
+        <p class="project-description">
+          This tutorial demonstrates the creative workflow behind
+          a promotional coffee graphic for Brewed Bliss. It covers
+          layout and composition, typography and hierarchy, image
+          placement, color styling, and practical Canva editing
+          techniques used to bring the final concept together.
         </p>
 
 
-        <div class="password-area">
+        <!-- =====================================================
+             VIDEO VIEWER
+             ===================================================== -->
 
-          <input
-            type="password"
-            id="passwordInput"
-            class="password-input"
-            placeholder="Enter viewer password"
-            autocomplete="off"
-            aria-label="Viewer password"
-          />
+        <div class="video-shell" id="videoShell">
 
-          <button
-            type="button"
-            id="unlockButton"
-            class="unlock-button"
-          >
-            Unlock video
-          </button>
+          <!-- LOCKED STATE -->
 
-          <p
-            id="errorMessage"
-            class="error-message"
-            role="alert"
-          >
-            Incorrect password. Please try again.
-          </p>
+          <div class="video-placeholder" id="lockedView">
 
-        </div>
+            <div class="lock-mark">
+              🔒
+            </div>
 
-      </div>
+            <div class="private-label">
+              Private Content
+            </div>
+
+            <h3>
+              Full Tutorial
+            </h3>
+
+            <p>
+              Enter the viewer password to access the
+              complete behind-the-scenes Canva tutorial.
+            </p>
 
 
-      <!-- =====================================================
-           UNLOCKED VIDEO
-      ====================================================== -->
+            <form class="password-form" id="passwordForm">
 
-      <div
-        class="video-state"
-        id="videoState"
-      >
+              <input
+                type="password"
+                id="passwordInput"
+                placeholder="Enter viewer password"
+                autocomplete="off"
+                aria-label="Viewer password"
+              >
 
-        <div class="video-header">
+              <button
+                type="submit"
+                class="unlock-button"
+              >
+                Unlock
+              </button>
 
-          <h3 class="video-title">
-            Brewed Bliss — Canva Design Tutorial
-          </h3>
+            </form>
 
-          <span class="video-status">
-            Viewer access granted
-          </span>
+            <div
+              class="error-message"
+              id="errorMessage"
+              aria-live="polite"
+            ></div>
 
-        </div>
-
-
-        <div class="video-wrapper">
-
-          <iframe
-            id="youtubeVideo"
-            src=""
-            title="Brewed Bliss — Canva Design Tutorial"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen
-          ></iframe>
-
-        </div>
+          </div>
 
 
-        <div class="video-note">
+          <!-- UNLOCKED STATE -->
 
-          <span>
-            Private portfolio presentation · Content creation & design
-          </span>
+          <div class="video-content" id="videoContent">
 
-          <a
-            href="https://youtube.com/shorts/QO4YdhLnFVU?feature=share"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="youtube-link"
-          >
-            Open on YouTube ↗
-          </a>
+            <iframe
+              id="youtubeVideo"
+              title="Brewed Bliss Canva Design Tutorial"
+              src=""
+              allow="
+                accelerometer;
+                autoplay;
+                clipboard-write;
+                encrypted-media;
+                gyroscope;
+                picture-in-picture;
+                web-share
+              "
+              allowfullscreen
+              referrerpolicy="strict-origin-when-cross-origin"
+            ></iframe>
+
+          </div>
 
         </div>
 
-      </div>
+
+        <!-- =====================================================
+             PROJECT DETAILS
+             ===================================================== -->
+
+        <div class="project-footer">
+
+          <div class="footer-item">
+
+            <span>
+              Project
+            </span>
+
+            <p>
+              Brewed Bliss promotional coffee content
+              and Canva design tutorial.
+            </p>
+
+          </div>
+
+
+          <div class="footer-item">
+
+            <span>
+              Focus
+            </span>
+
+            <p>
+              Social media design · Content creation ·
+              Visual storytelling
+            </p>
+
+          </div>
+
+        </div>
+
+      </article>
+
+    </section>
+
+
+    <!-- =======================================================
+         CLOSING
+         ======================================================= -->
+
+    <section class="closing">
+
+      <h2>
+        Thoughtful visuals.<br>
+        <em>Purposeful content.</em>
+      </h2>
+
+      <p class="closing-note">
+        This private viewer is intended for portfolio review
+        and selected client-facing work.
+      </p>
 
     </section>
 
@@ -850,136 +977,98 @@
 
   <!-- =========================================================
        FOOTER
-  ========================================================= -->
+       ========================================================= -->
 
   <footer>
 
-    <span>
-      © 2026 Nicole Villarta
-    </span>
+    <div class="footer-inner">
 
-    <span class="footer-right">
-      Social Media · Content · Support
-    </span>
+      <div class="footer-brand">
+        Nicole Villarta
+      </div>
+
+      <div>
+        Social Media · Content · Support
+      </div>
+
+      <div>
+        © 2026
+      </div>
+
+    </div>
 
   </footer>
 
 
   <!-- =========================================================
        JAVASCRIPT
-  ========================================================= -->
+       ========================================================= -->
 
   <script>
 
-    /*
-      ============================================================
-      VIEWER ACCESS SETTINGS
-      ============================================================
-    */
+    const PASSWORD = "BLISS08!";
 
-    const VIEWER_PASSWORD = "BLISS08!";
+    const YOUTUBE_ID = "d4sEK4lXQVg";
 
-    const YOUTUBE_VIDEO_ID = "QO4YdhLnFVU";
-
-
-    /*
-      ============================================================
-      ELEMENTS
-      ============================================================
-    */
+    const passwordForm =
+      document.getElementById("passwordForm");
 
     const passwordInput =
       document.getElementById("passwordInput");
 
-    const unlockButton =
-      document.getElementById("unlockButton");
-
     const errorMessage =
       document.getElementById("errorMessage");
 
-    const lockedState =
-      document.getElementById("lockedState");
-
-    const videoState =
-      document.getElementById("videoState");
+    const videoShell =
+      document.getElementById("videoShell");
 
     const youtubeVideo =
       document.getElementById("youtubeVideo");
 
 
-    /*
-      ============================================================
-      UNLOCK FUNCTION
-      ============================================================
-    */
+    passwordForm.addEventListener("submit", function (event) {
 
-    function unlockVideo() {
+      event.preventDefault();
 
       const enteredPassword =
         passwordInput.value.trim();
 
 
-      /*
-        Check password
-      */
+      /* Correct password */
 
-      if (enteredPassword === VIEWER_PASSWORD) {
+      if (enteredPassword === PASSWORD) {
 
-        /*
-          Hide error
-        */
+        errorMessage.textContent = "";
 
-        errorMessage.classList.remove("show");
-
+        videoShell.classList.add("unlocked");
 
         /*
-          Hide password section
-        */
-
-        lockedState.style.display = "none";
-
-
-        /*
-          Show video
-        */
-
-        videoState.classList.add("active");
-
-
-        /*
-          Load YouTube video only AFTER password
-          is successfully entered.
-
-          This prevents the video from loading
-          while the viewer is still locked.
+          Load the YouTube video only after
+          the correct password has been entered.
         */
 
         youtubeVideo.src =
-          "https://www.youtube.com/embed/" +
-          YOUTUBE_VIDEO_ID +
-          "?rel=0&modestbranding=1&playsinline=1";
-
+          `https://www.youtube.com/embed/${YOUTUBE_ID}?rel=0&modestbranding=1&playsinline=1`;
 
         /*
-          Smoothly move viewer toward video
+          Remember unlocked state during this
+          browser session.
         */
 
-        setTimeout(() => {
+        sessionStorage.setItem(
+          "brewBlissViewerUnlocked",
+          "true"
+        );
 
-          videoState.scrollIntoView({
-            behavior: "smooth",
-            block: "center"
-          });
+      }
 
-        }, 100);
 
-      } else {
+      /* Incorrect password */
 
-        /*
-          Wrong password
-        */
+      else {
 
-        errorMessage.classList.add("show");
+        errorMessage.textContent =
+          "That password doesn't match. Please try again.";
 
         passwordInput.value = "";
 
@@ -987,39 +1076,26 @@
 
       }
 
+    });
+
+
+    /*
+      Restore access if the viewer was already
+      unlocked during this browser session.
+    */
+
+    if (
+      sessionStorage.getItem(
+        "brewBlissViewerUnlocked"
+      ) === "true"
+    ) {
+
+      videoShell.classList.add("unlocked");
+
+      youtubeVideo.src =
+        `https://www.youtube.com/embed/${YOUTUBE_ID}?rel=0&modestbranding=1&playsinline=1`;
+
     }
-
-
-    /*
-      ============================================================
-      BUTTON CLICK
-      ============================================================
-    */
-
-    unlockButton.addEventListener(
-      "click",
-      unlockVideo
-    );
-
-
-    /*
-      ============================================================
-      ENTER KEY
-      ============================================================
-    */
-
-    passwordInput.addEventListener(
-      "keydown",
-      function(event) {
-
-        if (event.key === "Enter") {
-
-          unlockVideo();
-
-        }
-
-      }
-    );
 
   </script>
 
